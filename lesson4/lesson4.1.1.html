@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        // первый вариант
+        function Product(name, price) {
+            this.name = name;
+            this.price = price;
+            this.make25PercentDiscount = this.price * 0.75;
+            // this.make25PercentDiscount = function(percent){
+            //return this.price*((100-percent)/100)
+        //};
+        };
+
+        // второй вариант
+        function Product_new(name, price) {
+            this.name = name;
+            this.price = price;
+            this.toString = function() {
+                return ("Продукт: " + this.name + " цена: " + this.price);// название объекта переопределил toString
+            };
+            
+        };
+        
+        Product_new.prototype.make25PercentDiscount = function(percent) {
+            return this.price*((100-percent)/100)
+        }
+        
+        const product2 = new Product_new("dsfsdf", 1000);
+        alert(product2.make25PercentDiscount(35)); // ввести проценты 
+        
+        alert(product2)
+        const product1 = new Product("dfsf", 1000);
+        alert(product1.make25PercentDiscount)
+    </script>
+</body>
+
+</html>
