@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        //пример 1 
+        let a = 1
+            , b = 1
+            , c, d;
+        c = ++a; // инкремент увеличивает число на 1, 
+        // сразу на том же шаге
+        alert(c); // ответ: 2 
+        //пример 2 
+        d = b++; // инкремент увеличивает на 1, после этого шага.
+        alert(d); //ответ: 1 
+        //пример 3 
+        c = 2 + ++a;
+        alert(c); //ответ: 5 
+        //пример 4 
+        d = 2 + b++;
+        alert(d); //ответ: 4 
+        alert(a); //3 
+        alert(b); //3
+    </script>
+</body>
+
+</html>

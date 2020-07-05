@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        function mathOperation(arg1, arg2, operation) {
+            switch (operation) {
+            case "сложение":
+                console.log(arg1 + arg2);
+                break;
+            case "вычитание":
+                console.log(arg1 - arg2);
+                break;
+            case "умножение":
+                console.log(arg1 * arg2);
+                break;
+            case "деление":
+                console.log(arg1 / arg2);
+                break;
+            default:
+                console.log("Неверная операция");
+            }
+        }
+        mathOperation(+prompt("Введите число"), +prompt("Введите число"), prompt("Введите операцию"))
+        
+    </script>
+</body>
+
+</html>
