@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"> </head>
+
+<body>
+    <div class="product">
+        <div class="productName">Product 1 name</div> <img src="http://placekitten.com/g/120/135" alt="">
+        <br>
+        <button>Подробнее</button>
+    </div>
+    <div class="product">
+        <div class="productName">Product 2 name</div> <img src="http://placekitten.com/g/120/135" alt="">
+        <br>
+        <button>Подробнее</button>
+    </div>
+    <div class="product">
+        <div class="productName">Product 3 name</div> <img src="http://placekitten.com/g/120/135" alt="">
+        <br>
+        <button>Подробнее</button>
+    </div>
+    <div class="product">
+        <div class="productName">Product 4 name</div> <img src="http://placekitten.com/g/120/135" alt="">
+        <br>
+        <button>Подробнее</button>
+    </div>
+    <script>
+        'use strict'
+        let buttonsEL = document.querySelectorAll("button");
+  
+        buttonsEL.forEach(function (buttonEL){
+            buttonEL.addEventListener('click', function (event) { 
+                
+                ClickHand(event);
+            });      
+        });
+        
+        function ClickHand(click){
+            let divHTML = click.target.parentNode;
+            let imgEL = divHTML.querySelector('img')
+            let buttonEL = divHTML.querySelector('button');
+            console.log(divHTML);
+            if (buttonEL.innerText === "Подробнее"){
+                showText(divHTML)
+                console.log(buttonEL.innerText)
+            }
+            else if (buttonEL.innerText === "Отмена"){
+                showImg(divHTML);
+            };
+           
+           
+        }
+        
+        function showText(el) {
+            el.querySelector('img').setAttribute('style', 'display: none');
+            el.querySelector('button').textContent = "Отмена";
+            const Text = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint perferendis, earum, corporis magnam ratione sit hic, dolores, ea maiores iste tempore sequi numquam natus debitis modi rem consequuntur exercitationem error!"
+            console.log(el.querySelector('productName'));
+            el.querySelector('.productName').insertAdjacentHTML('afterend', `<div class="desc">${Text}</div>`);
+            
+        }
+        
+        function showImg(el) {
+            el.querySelector('img').style.removeProperty('display');
+            el.querySelector(".desc").remove();
+            el.querySelector('button').textContent = "Подробнее";
+        }
+        
+    </script>
+</body>
+
+</html>
