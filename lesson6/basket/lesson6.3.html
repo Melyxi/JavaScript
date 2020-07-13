@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css"> </head>
+<link rel="stylesheet" href="magic-master/dist/magic.css">
+<link rel="stylesheet" href="magic-master/dist/magic.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"> <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#">Link</a> </li>
+                <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Корзина
+        </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Имя</th>
+                                    <th scope="col">Цена</th>
+                                    <th scope="col">Количество</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                            <tfoot>
+                                <tr>
+                                    <th colspan="2" scope="row">Итого:</th>
+                                    <td colspan="3"> <span class="total">0</span><span></span> <i class="fas fa-ruble-sign"></i> </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </li>
+                <li class="nav-item"> <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="card" id="1" style="width: 18rem;"> <img src="https://placeimg.com/640/480/tech" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Товар №1</h5>
+            <h5 class="card-title">Цена: <span class="price">1200</span>руб</h5>
+            <button type="button" class="btn btn-primary" data-id="1" data-price="1200" data-name="Товар №1">Купить</button>
+        </div>
+    </div>
+    <div class="card" id="2" style="width: 18rem;"> <img src="https://placeimg.com/640/480/tech" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Товар №2</h5>
+            <h5 class="card-title">Цена: <span class="price">6500</span>руб</h5>
+            <button type="button" class="btn btn-primary" data-id="2" data-price="6500" data-name="Товар №2">Купить</button>
+        </div>
+    </div>
+    <div class="card" id="3" style="width: 18rem;"> <img src="https://placeimg.com/640/480/tech" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Товар №3</h5>
+            <h5 class="card-title">Цена: <span class="price">2000</span>руб</h5>
+            <button type="button" class="btn btn-primary" data-id="3" data-price="2000" data-name="Товар №3">Купить</button>
+        </div>
+    </div>
+    <script>
+        'use strict';
+        let products = document.querySelectorAll('.btn-primary');
+        products.forEach(function (product) {
+            product.addEventListener("click", function () {
+                    let nameProduct = product.dataset.name;
+                    let idProduct = product.dataset.id;
+                    let priceProduct = product.dataset.price;
+                    constructorDict.adddict(nameProduct, priceProduct, idProduct);
+                    constructorDict.renderProduct(nameProduct, priceProduct, idProduct);
+                    constructorDict.renderTotalprice();
+                    constructorDict.listenerRemove();
+                    console.log(nameProduct);
+                })
+                // console.log(product.dataset.name)
+        })
+        let constructorDict = {
+            dictProduct: {},
+            adddict(name, price, id) {
+                this.name = name;
+                this.id = id;
+                this.price = price;
+                console.log(this.dictProduct);
+                constructorDict.addProduct(this);
+            },
+            addProduct() {
+                if (this.dictProduct[this.id] == undefined) {
+                    return this.dictProduct[this.id] = {
+                        'id': this.id,
+                        'name': this.name,
+                        'price': this.price,
+                        'count': 1,
+                    }
+                }
+                else {
+                    return this.dictProduct[this.id].count++;
+                }
+            },
+            renderProduct(name, price, id) {
+                let indxProduct = document.querySelector(`.productCount[data-id="${id}"]`)
+                if (indxProduct) {
+                    indxProduct.textContent++;
+                    return;
+                }
+                let productText = `
+
+                                    <tr>
+                <th scope="row">${id}</th>
+                <td>${name}</td>
+                <td>${price}</td>
+                <td class="productCount" data-id="${id}">1</td>
+                <td><i class="fas fa-trash-alt productRemoveBtn" data-id="${id}"></i></td>
+            </tr> `;
+                let tbodyEL = document.querySelector('tbody');
+                tbodyEL.insertAdjacentHTML("beforeend", productText);
+            },
+            totalPrice() {
+                let summ = 0;
+                for (let prodPrice in this.dictProduct) {
+                    summ += this.dictProduct[prodPrice].price * this.dictProduct[prodPrice].count;
+                }
+                return summ;
+            },
+            renderTotalprice() {
+                document.querySelector('.total').textContent = this.totalPrice();
+            },
+            listenerRemove() {
+                let removeBtn = document.querySelectorAll('.productRemoveBtn');
+                for (let i = 0; i < removeBtn.length; i++) {
+                    removeBtn[i].addEventListener('click', this.removeProduct);
+                }
+            },
+            removeProduct(event) {
+                constructorDict.removeBasket(event);
+                constructorDict.totalRemove();
+            },
+            removeBasket(event) {
+                let id = event.srcElement.dataset.id;
+                let basketEL = document.querySelector(`.productCount[data-id="${id}"]`);
+                if (basketEL.textContent == 1) {
+                    basketEL.parentNode.remove();
+                }
+                else {
+                    basketEL.textContent--;
+                }
+                if (this.dictProduct[id].count == 1) {
+                    delete this.dictProduct[id];
+                }
+                else {
+                    this.dictProduct[id].count--;
+                }
+                console.log(id);
+            },
+            totalRemove() {
+                document.querySelector('.total').textContent = this.totalPrice();
+            }
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+
+</html>
