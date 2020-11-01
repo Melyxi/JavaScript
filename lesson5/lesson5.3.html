@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"> </head>
+
+<body>
+
+    <div class="modal-overlay modalclosed"></div>
+    <div class="modal modalclosed">
+        <h3>Модальное окно</h3>
+        <button class="closed">Закрыть</button>
+    </div>
+    
+    <button class="win">Кнопка</button>
+
+    <script>
+        'use strict'
+        let buttonEl = document.querySelector(".win");
+        let modalEL = document.querySelector(".modal");
+        let closedEL = document.querySelector(".closed");
+        let fonEL = document.querySelector(".modal-overlay");
+        
+        buttonEl.addEventListener("click", function () {
+            modalEL.classList.remove("modalclosed");
+            fonEL.classList.remove("modalclosed");
+            
+        });
+        closedEL.addEventListener("click", function () {
+            modalEL.classList.add("modalclosed");
+            fonEL.classList.add("modalclosed");
+        });
+    </script>
+</body>
+
+</html>

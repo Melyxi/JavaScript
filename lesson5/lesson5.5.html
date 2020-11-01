@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"> </head>
+
+<body>
+    <script>
+        const dict = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+        let table = document.createElement("table");
+        document.body.appendChild(table);
+        for (let i = 0; i < 9; ++i) {
+            let row = document.createElement("tr");
+            table.appendChild(row);
+            for (let j = 0; j < 9; ++j) {
+                let td = document.createElement("td");
+                row.appendChild(td);
+                let tdEL = document.querySelector("td");
+                if (i % 2 == 0 && i != 8) {
+                    if (j % 2 == 0 && j != 0) {
+                        td.classList.add("tdblack");
+                    };
+                }
+                else {
+                    if (j % 2 != 0 && j != 0 && i != 8) {
+                        td.classList.add("tdblack");
+                    };
+                };
+                if (j == 0 && i != 8) {
+                    td.innerHTML = i + 1;
+                };
+                if (i == 8 && j != 0) {
+                    td.innerHTML = dict[j - 1];
+                };
+            };
+        };
+    </script>
+</body>
+
+</html>
