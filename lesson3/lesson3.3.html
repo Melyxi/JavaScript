@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        const products = [{
+            id: 3,
+            price: 200,
+        }, 
+        {
+            id: 4,
+            price: 900,
+        }, 
+        {
+            id: 1,
+            price: 1000
+        }, 
+        ];
+        
+        let filter_proc = products.forEach(function(product){
+            
+            console.log("id " + product.id + ", " + product.price * 0.85) // как еще можно отформатировать строку без конкатенации 
+        })
+        
+        
+    </script>
+</body>
