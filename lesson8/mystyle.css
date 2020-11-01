@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.mydrop {
+    margin-top: 30px;
+    width: 500px;
+    margin-left: 30px;
+}
+.dropmenu li {
+    text-align: center;
+    padding-left: 10px;
+    padding-top: 2px;
+    list-style-type: none;
+}
+
+
+.scrol:hover {
+    cursor: pointer;
+}
+
+
+.dropmenu {
+    height: 150px;
+    overflow: auto;
+
+}
+
+
+.showscrol{
+    background-color: orange;
+}
+
+.hoverscrol {
+    background-color: aquamarine;
+}
+
+.scrolcontainer {
+    float: right;
+
+}
+.content {
+    width: 800px;
+    display: inline-block;
+
+}
+
+.badge-primary {
+    width: 80px;
+    height: 30px;
+    margin-left: 5px;
+    padding-top: 5px;
+    
+    margin-right: 5px;
+}
+.element {
+        margin-left: 5px;
+    padding-top: 5px;
+    float: left;
+    margin-right: 5px;
+}
+
+.closeimg:hover {
+ cursor: pointer;
+}
+
+.closeimg {
+    width: 25px;
+    
+}
+
+#game {
+    width: 150px;
+    margin: 50px auto;
+}
+
+#game td {
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    text-align: center;
+}
