@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.container-slaider {
+    width: 1980px;
+    margin: 0 auto;
+}
+
+
+.slider {
+    position: relative;
+    width: 400px;
+    height: 100%;
+}
+
+.slider-item {
+    position: absolute;
+    z-index: 1;
+}
+
+.slider-hidden {
+    display: none;
+}
+
+.arrow-6 {
+    margin: 20px;
+    display: inline-flex;
+    padding-top: 400px;
+}
+
+.arrow-6 svg {
+    width: 100px;
+    height: auto;
+    margin: 0 2rem;
+    cursor: pointer;
+    overflow: visible;
+}
+
+.arrow-6 svg polygon,
+.arrow-6 svg path {
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    fill: #337AB7;
+}
+
+.arrow-6 svg:hover polygon,
+.arrow-6 svg:hover path {
+    transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+    fill: #000;
+}
+
+.arrow-6 svg:hover .arrow-6-pl {
+    animation: arrow-6-anim 1s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+}
+
+.arrow-6 svg:hover .arrow-6-pl-fixed {
+    animation: arrow-6-fixed-anim 1s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+}
+
+@keyframes arrow-6-anim {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    5% {
+        transform: translateX(-0.1rem);
+    }
+    100% {
+        transform: translateX(1rem);
+        opacity: 0;
+    }
+}
+
+@keyframes arrow-6-fixed-anim {
+    5% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.right {
+    padding-left: 750px;
+    margin-left: 500px;
+    z-index: 1000;
+}
+
+.left {
+    margin-right: 500px;
+    padding-right: 750px;
+    z-index: 1000;
+}
+
+.load {
+    margin-top: 400px;
+    margin-left: 800px;
+}
+
+.card {
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+.bucketPanel {
+    width: 400px;
+    padding: 10px;
+}
+
+.productRemoveBtn:hover {
+    cursor: pointer;
+}
+
+button:hover{
+    cursor: pointer;
+}
