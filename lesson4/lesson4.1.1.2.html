@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        class Product {
+            constructor(name, price){
+                this.name = name;
+                this.price = price;
+
+            };
+                
+            toString() {
+                        return "Продукт: " + this.name + " цена: " + this.price;// название объекта переопределил toString
+            };
+            make25PercentDiscount(percent) {
+                return this.price*((100-percent)/100)
+            }
+        };
+        
+        const product = new Product("dsfsdf", 1000);
+        alert(product.make25PercentDiscount(35)); // ввести проценты 
+        alert(product)
+
+    </script>
+</body>
+
+</html>

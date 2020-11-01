@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+          
+        class Post {
+            constructor(author, date, text = null){
+                this.author = author;
+                this.text = text;
+                this.date = date;
+                
+            };
+            edit() {
+                this.text = prompt("Введите текст");
+            };
+        };
+        
+        class AttachedPost extends Post {
+            constructor(author, date, text = null){
+                super(author, date, text);
+                this.highlighted = false;
+                
+            };
+            makeTextHighlighted() {
+                this.highlighted = !this.highlighted;
+            }
+        };
+        
+        let post1 = new AttachedPost("igor", new Date());
+        
+        post1.edit();
+        post1.makeTextHighlighted();
+        console.log(post1);
+        
+        
+    </script>
+</body>
+
+</html>
